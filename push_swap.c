@@ -43,16 +43,15 @@ int	ft_isdup(int size, char **input)
 	while (i != size)
 	{
 		j = i + 1;
-		if (input[i][0] != input[j][0])
-			i++;
-		else
+		while (j != size)
 		{
-			while (input[i] || input[j])
+			while (input[i][index] || input[j][index])
 			{
-				if (input[i][index] == input[j][index])
+				if (input[i][index] == '\0')
 					return (0);
 				index++;
 			}
+			j++;
 		}
 	}
 	return (1);
@@ -65,7 +64,7 @@ void    fill_stack_a(int size, char **input)
     i = 1;
     while (i != size)
     {
-
+		
     }
 }
 

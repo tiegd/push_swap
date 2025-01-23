@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "../Libft"
 
 typedef	struct s_list
 {
