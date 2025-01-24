@@ -57,6 +57,68 @@ int	ft_isdup(int size, char **input)
 	return (1);
 }
 
+t_dclist	*new_node(void *content)
+{
+	t_dclist	*new;
+
+	new = malloc(sizeof(t_dclist));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	return (new);
+}
+
+void	add_node_front(t_dclist **lst, t_dclist *new)
+{
+	if (lst == NULL)
+	{
+		lst->next = new;
+		lst->prev = new;
+		*lst = new;
+	}
+	else
+	{
+		t_dclist *last = (*lst)->prev;
+		new->next = *lst;
+		new->prev = last;
+		last->next = new;
+		(*lst)->prev = new;
+		*lst = new;
+	}
+}
+
+void	add_node_back(t_dclist **lst, t_dclist *new)
+{
+	if (lst == NULL)
+	{
+		lst->next = new;
+		lst->prev = new;
+		*lst = new;
+	}
+	else
+	{
+		t_dclist *last = (*lst)->prev;
+		new->next = *lst;
+		new->prev = last;
+		last->next = new;
+		(*lst)->prev = new;
+	}
+}
+
+void	del_node(t_dclist *lst)
+{
+	if (!lst)
+		return ;
+	t_dclist	*current;
+
+	*current = *lst;
+	current->prev->next = current->next;
+	current->next->prev = current->prev;
+	if (*lst == current)
+		*lst = current->next;
+	free(current);
+}
+
 void    fill_stack_a(int size, char **input)
 {
     int i;
@@ -70,7 +132,7 @@ void    fill_stack_a(int size, char **input)
 
 int main(int argc, char **argv)
 {
-    if (argc = 1)
+    if (argc < 2)
         return (0);
     if (ft_check(argv) == 1)
 	{

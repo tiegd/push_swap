@@ -15,13 +15,13 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../Libft"
+# include "./Libft/libft.h"
 
-typedef	struct s_list
+typedef	struct s_dclist
 {
-	char			*content;
-	struct s_list	*prev;
-	struct s_list	*next;
-}					t_list;
+	int			*content;
+	struct s_dclist	*prev;
+	struct s_dclist	*next;
+}					t_dclist;
 
 #endif
