@@ -20,6 +20,8 @@ t_dclist	*new_node(void *content)
 	if (!new)
 		return (NULL);
 	new->content = content;
+	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -78,7 +80,7 @@ void	del_node(t_dclist *lst)
 	free(current);
 }
 
-void    fill_stack_a(int size, char **input)
+void	fill_stack_a(int size, char **input)
 {
     int i;
 	t_dclist	**lst_a;

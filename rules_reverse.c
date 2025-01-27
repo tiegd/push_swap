@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_reverse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 13:09:22 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/27 13:09:23 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/01/27 15:14:50 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/01/27 15:14:52 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "push_swap.h"
+
+char	*rra(t_dclist **lst_a)
 {
-	if (argc < 2)
-		return (0);
-	if (ft_check(argv) == 1)
-	{
-		fill_stack_a(argc, argv);
-		push_swap();
-	}
+	(*lst_a) = (*lst_a)->prev;
+	write(1, "rra\n", 4);
+}
+
+char	*rrb(t_dclist **lst_b)
+{
+	(*lst_b) = (*lst_b)->prev;
+	write(1, "rrb\n", 4);
+}
+
+char	*rrr(t_dclist **lst_a, t_dclist **lst_b)
+{
+	rra(lst_a);
+	rrb(lst_b);
+	write(1, "rrr\n", 4);
 }

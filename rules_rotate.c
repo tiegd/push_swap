@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 13:09:22 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/27 13:09:23 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/01/27 15:10:48 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/01/27 15:10:50 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "push_swap.h"
+
+char	*ra(t_dclist **lst_a)
 {
-	if (argc < 2)
-		return (0);
-	if (ft_check(argv) == 1)
-	{
-		fill_stack_a(argc, argv);
-		push_swap();
-	}
+	(*lst_a) = (*lst_a)->next;
+	write(1, "ra\n", 3);
+}
+
+char	*rb(t_dclist **lst_b)
+{
+	(*lst_b) = (*lst_b)->next;
+	write(1, "rb\n", 3);
+}
+
+char	*rr(t_dclist **lst_a, t_dclist **lst_b)
+{
+	ra(lst_a);
+	rb(lst_b);
+	write(1, "rr\n", 3);
 }

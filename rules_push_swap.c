@@ -12,56 +12,51 @@
 
 #include "push_swap.h"
 
-void	sa(t_dclist **lst_a)
+char	*sa(t_dclist **lst_a)
 {
+	t_dclist	*new;
 
-}
-void	sb(t_dclist **lst_b)
-{
-
-}
-
-void	ss(t_dclist **lst_a, t_dclist **lst_b)
-{
-
+	(*lst_a) = (*lst_a)->next;
+	new = new_node((*lst_a)->content);
+	(*lst_a) = (*lst_a)->prev;
+	add_node_front(lst_a, new);
+	del_node(lst_a);
+	write(1, "sa\n", 3);
 }
 
-void	pa(t_dclist **lst_b, t_dclist **lst_a)
+char	*sb(t_dclist **lst_b)
 {
+	t_dclist	*new;
 
+	(*lst_b) = (*lst_b)->next;
+	new = new_node((*lst_b)->content);
+	(*lst_b) = (*lst_b)->prev;
+	add_node_front(lst_b, new);
+	del_node(lst_b);
+	write(1, "sb\n", 3);
 }
 
-void	pb(t_dclist **lst_a, t_dclist **lst_b)
+char	*ss(t_dclist **lst_a, t_dclist **lst_b)
 {
-
+	sa(lst_a);
+	sb(lst_b);
+	write(1, "ss\n", 3);
 }
 
-void	ra(t_dclist **lst_a)
+char	*pa(t_dclist **lst_b, t_dclist **lst_a)
 {
+	t_dclist	*new;
 
+	new = new_node((*lst_b)->content);
+	add_node_front(lst_a, new);
+	write(1, "pa\n", 3);
 }
 
-void	rb(t_dclist **lst_b)
+char	*pb(t_dclist **lst_a, t_dclist **lst_b)
 {
+	t_dclist	*new;
 
-}
-
-void	rr(t_dclist **lst_a, t_dclist **lst_b)
-{
-
-}
-
-void	rra(t_dclist **lst_a)
-{
-
-}
-
-void	rrb(t_dclist **lst_b)
-{
-
-}
-
-void	rrr(t_dclist **lst_a, t_dclist **lst_b)
-{
-	
+	new = new_node((*lst_a)->content);
+	add_node_front(lst_b, new);
+	write(1, "pb\n", 3);
 }
