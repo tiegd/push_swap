@@ -12,51 +12,6 @@
 
 #include "push_swap.h"
 
-int	ft_isdigit(int size, char **input)
-{
-	int i;
-	int j;
-
-	i = 1;
-	while (i != isze)
-	{
-		j = 0;
-		while (input[i][j])
-		{
-			if (input[i][j] < 48 || input[i][j] > 57)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	ft_isdup(int size, char **input)
-{
-	int	i;
-	int	j;
-	int	index;
-
-	i = 1;
-	index = 0;
-	while (i != size)
-	{
-		j = i + 1;
-		while (j != size)
-		{
-			while (input[i][index] || input[j][index])
-			{
-				if (input[i][index] == '\0')
-					return (0);
-				index++;
-			}
-			j++;
-		}
-	}
-	return (1);
-}
-
 t_dclist	*new_node(void *content)
 {
 	t_dclist	*new;
@@ -70,15 +25,17 @@ t_dclist	*new_node(void *content)
 
 void	add_node_front(t_dclist **lst, t_dclist *new)
 {
+	t_dclist *last;
+
 	if (lst == NULL)
 	{
-		lst->next = new;
-		lst->prev = new;
+		(*lst)->next = new;
+		(*lst)->prev = new;
 		*lst = new;
 	}
 	else
 	{
-		t_dclist *last = (*lst)->prev;
+		last = (*lst)->prev;
 		new->next = *lst;
 		new->prev = last;
 		last->next = new;
@@ -89,15 +46,17 @@ void	add_node_front(t_dclist **lst, t_dclist *new)
 
 void	add_node_back(t_dclist **lst, t_dclist *new)
 {
+	t_dclist *last;
+
 	if (lst == NULL)
 	{
-		lst->next = new;
-		lst->prev = new;
+		(*lst)->next = new;
+		(*lst)->prev = new;
 		*lst = new;
 	}
 	else
 	{
-		t_dclist *last = (*lst)->prev;
+		last = (*lst)->prev;
 		new->next = *lst;
 		new->prev = last;
 		last->next = new;
@@ -114,29 +73,22 @@ void	del_node(t_dclist *lst)
 	*current = *lst;
 	current->prev->next = current->next;
 	current->next->prev = current->prev;
-	if (*lst == current)
-		*lst = current->next;
+	if (lst == current)
+		lst = current->next;
 	free(current);
 }
 
 void    fill_stack_a(int size, char **input)
 {
     int i;
+	t_dclist	**lst_a;
+	t_dclist	*number;
 
     i = 1;
     while (i != size)
-    {
-		
-    }
-}
-
-int main(int argc, char **argv)
-{
-    if (argc < 2)
-        return (0);
-    if (ft_check(argv) == 1)
 	{
-        fill_stack(argc, argv);
-        push_swap();
+		number = new_node(input[i]);
+		add_node_back(lst_a, number);
+		i++;
 	}
 }
