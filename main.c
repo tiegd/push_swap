@@ -10,13 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	push_swap(t_dclist **lst_a, t_dclist **lst_b)
+{
+
+}
+
 int	main(int argc, char **argv)
 {
+	t_dclist	**lst_a;
+	t_dclist	**lst_b;
+
+
 	if (argc < 2)
+	{
+		write(1, "Error\n", 6);
 		return (0);
-	if (ft_check(argv) == 1)
+	}
+	if (ft_check(*argv) == 1)
 	{
 		fill_stack_a(argc, argv);
-		push_swap();
+		push_swap(lst_a, lst_b);
+	}
+	if (ft_check(*argv) == 0)
+	{
+		write(1, "Error\n", 6);
+		return (0);
 	}
 }

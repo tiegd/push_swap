@@ -82,14 +82,15 @@ void	del_node(t_dclist *lst)
 
 void	fill_stack_a(int size, char **input)
 {
-    int i;
+    int			i;
 	t_dclist	**lst_a;
 	t_dclist	*number;
 
     i = 1;
     while (i != size)
 	{
-		number = new_node(input[i]);
+
+		number = new_node(ft_atoi(input[i]));
 		add_node_back(lst_a, number);
 		i++;
 	}

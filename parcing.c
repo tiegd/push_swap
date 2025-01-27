@@ -56,3 +56,18 @@ int	ft_isdup(int size, char **input)
 	}
 	return (1);
 }
+
+int	is_to_long(int size, char **input)
+{
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (input[i][0] == '-' && ft_strlen(input[i]) >= 11)
+			return (0);
+		if (ft_strlen(input[i]) >= 10)
+			return (0);
+	}
+	return (1);
+}
