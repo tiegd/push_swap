@@ -19,7 +19,7 @@
 
 typedef	struct s_dclist
 {
-	int			*content;
+	int			*data;
 	struct s_dclist	*prev;
 	struct s_dclist	*next;
 }					t_dclist;
@@ -35,7 +35,7 @@ char		*rr(t_dclist **lst_a, t_dclist **lst_b);
 char		*rra(t_dclist **lst_a);
 char		*rrb(t_dclist **lst_b);
 char		*rrr(t_dclist **lst_a, t_dclist **lst_b);
-t_dclist	*new_node(void *content);
+t_dclist	*new_node(int content);
 void		add_node_front(t_dclist **lst, t_dclist *new);
 void		add_node_back(t_dclist **lst, t_dclist *new);
 void		del_node(t_dclist *lst);

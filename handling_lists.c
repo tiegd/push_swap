@@ -12,14 +12,14 @@
 
 #include "push_swap.h"
 
-t_dclist	*new_node(void *content)
+t_dclist	*new_node(int content)
 {
 	t_dclist	*new;
 
 	new = malloc(sizeof(t_dclist));
 	if (!new)
 		return (NULL);
-	new->content = content;
+	new->data = content;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
@@ -78,20 +78,4 @@ void	del_node(t_dclist *lst)
 	if (lst == current)
 		lst = current->next;
 	free(current);
-}
-
-void	fill_stack_a(int size, char **input)
-{
-    int			i;
-	t_dclist	**lst_a;
-	t_dclist	*number;
-
-    i = 1;
-    while (i != size)
-	{
-
-		number = new_node(ft_atoi(input[i]));
-		add_node_back(lst_a, number);
-		i++;
-	}
 }

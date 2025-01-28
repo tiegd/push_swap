@@ -71,3 +71,14 @@ int	is_to_long(int size, char **input)
 	}
 	return (1);
 }
+
+int	ft_check(int size, char **arg)
+{
+		if (!(ft_isdigit(size, arg)))
+			return (0);
+		if (!(ft_isdup(size, arg)))
+			return (0);
+		if (!(is_to_long(size, arg)))
+			return (0);
+		return (1);
+}

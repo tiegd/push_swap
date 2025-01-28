@@ -1,36 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 13:09:22 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/27 13:09:23 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/01/28 14:23:09 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/01/28 14:23:11 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_swap(int *a, int *b)
 {
+	int	c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
+}
+
+void	fill_stack_a(int size, char **input)
+{
+    int			i;
+	int			number;
 	t_dclist	**lst_a;
-	t_dclist	**lst_b;
+	t_dclist	*new;
 
+    i = 1;
+    while (i <= size)
+	{
+		number = ft_atoi(input[i]);
+		new = new_node(number);
+		add_node_back(lst_a, new);
+		i++;
+	}
+}
 
-	if (argc < 2)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	if (ft_check(*argv) == 1)
-	{
-		fill_stack_a(argc, argv);
-		push_swap(lst_a, lst_b);
-	}
-	if (ft_check(*argv) == 0)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
+int	check_bit(int a, int b)
+{
+	
 }
