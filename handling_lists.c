@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_dclist	*new_node(int content)
+t_dclist	*new_node(int content, int index)
 {
 	t_dclist	*new;
 
@@ -20,6 +20,7 @@ t_dclist	*new_node(int content)
 	if (!new)
 		return (NULL);
 	new->data = content;
+	new->index = index;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

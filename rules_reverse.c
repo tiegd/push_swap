@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-char	*rra(t_dclist **lst_a)
+void	*rra(t_dclist **lst_a)
 {
 	(*lst_a) = (*lst_a)->prev;
 	write(1, "rra\n", 4);
 }
 
-char	*rrb(t_dclist **lst_b)
+void	*rrb(t_dclist **lst_b)
 {
 	(*lst_b) = (*lst_b)->prev;
 	write(1, "rrb\n", 4);
 }
 
-char	*rrr(t_dclist **lst_a, t_dclist **lst_b)
+void	*rrr(t_dclist **lst_a, t_dclist **lst_b)
 {
 	rra(lst_a);
 	rrb(lst_b);

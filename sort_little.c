@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_rotate.c                                     :+:      :+:    :+:   */
+/*   sort_little.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 15:10:48 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/27 15:10:50 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/01/29 15:22:49 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/01/29 15:22:51 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ra(t_dclist **lst_a)
+void    sort_little(t_dclist **lst_a, int size)
 {
-	(*lst_a) = (*lst_a)->next;
-	write(1, "ra\n", 3);
-}
-
-void	*rb(t_dclist **lst_b)
-{
-	(*lst_b) = (*lst_b)->next;
-	write(1, "rb\n", 3);
-}
-
-void	*rr(t_dclist **lst_a, t_dclist **lst_b)
-{
-	ra(lst_a);
-	rb(lst_b);
-	write(1, "rr\n", 3);
+    if (size == 2 && (*lst_a)->data < (*lst_a)->next->data)
+        sa(lst_a);
+    if (size == 3)
+    if (size == 4)
+    if (size == 5)
 }

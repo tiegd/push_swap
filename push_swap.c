@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_dclist **lst_a, t_dclist **lst_b)
+void	push_swap(t_dclist **lst_a, t_dclist **lst_b, int size)
 {
 
 }

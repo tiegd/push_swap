@@ -12,18 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_swap(int *a, int *b)
+t_dclist	*fill_stack_a(int size, char **input)
 {
-	int	c;
-
-	c = *a;
-	*a = *b;
-	*b = c;
-}
-
-void	fill_stack_a(int size, char **input)
-{
-    int			i;
+	int			i;
 	int			number;
 	t_dclist	**lst_a;
 	t_dclist	*new;
@@ -32,13 +23,42 @@ void	fill_stack_a(int size, char **input)
     while (i <= size)
 	{
 		number = ft_atoi(input[i]);
-		new = new_node(number);
+		new = new_node(number, 0);
 		add_node_back(lst_a, new);
 		i++;
+	}
+	return (lst_a);
+}
+
+void	fill_index(int size, t_dclist **lst_a)
+{
+	int			i;
+	int			count;
+	t_dclist	*tmp;
+	t_dclist	*start;
+
+	count = 0;
+	start = lst_a;
+	while (count <= size)
+	{
+		i = size;
+		tmp = (*lst_a)->next;
+		while (tmp != start)
+		{
+			if (start->data < tmp->data)
+				i--;
+			tmp = tmp->next;
+		}
+		(*lst_a)->index = i;
+		lst_a = (*lst_a)->next;
+		count++;
 	}
 }
 
 int	check_bit(int a, int b)
 {
-	
+	if (a & b == 0)
+		return (0);
+	if (a & b == 1)
+		return (1);
 }

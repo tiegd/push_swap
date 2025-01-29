@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 13:09:22 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/27 13:09:23 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/01/29 15:37:52 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/01/29 15:37:53 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "stdio.h"
 
 int	main(int argc, char **argv)
 {
+	int			i;
 	t_dclist	**lst_a;
-	t_dclist	**lst_b;
-	int			*index;
+	t_dclist	*start;
 
-	index = malloc((argc - 1) * sizeof(int));
-	if (argc < 2)
+	i = 0;
+	*lst_a = fill_stack_a(argc, argv);
+	fill_index(argc - 1, lst_a);
+	printf("num noeud = %d, data = %d, index = %d", i, (*lst_a)->data, (*lst_a)->index);
+	start = *lst_a;
+	*lst_a = (*lst_a)->next;
+	i++;
+	while ((*lst_a) != start)
 	{
-		write(1, "Error\n", 6);
-		return (0);
+		printf("num noeud = %d, data = %d, index = %d", i, (*lst_a)->data, (*lst_a)->index);
+		i++;
+		(*lst_a) = (*lst_a)->next;
 	}
-	if (ft_check(argc, *argv) == 0)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	if (ft_check(argc, *argv) == 1)
-	{
-		*lst_a = fill_stack_a(argc, argv);
-		fill_index(argc - 1, lst_a);
-		if (argc >= 6)
-			push_swap(lst_a, lst_b, argc - 1);
-		else
-			sort_little(lst_a, argc - 1);
-	}
-	return (0);
+	
 }
