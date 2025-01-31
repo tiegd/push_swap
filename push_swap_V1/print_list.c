@@ -11,26 +11,27 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	int			i;
-	t_dclist	**lst_a;
+	t_dclist	*lst_a;
 	t_dclist	*start;
 
 	i = 0;
-	*lst_a = fill_stack_a(argc, argv);
-	fill_index(argc - 1, lst_a);
-	printf("num noeud = %d, data = %d, index = %d", i, (*lst_a)->data, (*lst_a)->index);
-	start = *lst_a;
-	*lst_a = (*lst_a)->next;
+	if (!ft_check(argc, argv))
+		return (0);
+	lst_a = fill_stack_a(argc, argv);
+	fill_index(argc - 1, &lst_a);
+	printf("num noeud = %d, data = %d, index = %d", i, lst_a->data, lst_a->index);
+	start = lst_a;
+	lst_a = lst_a->next;
 	i++;
-	while ((*lst_a) != start)
+	while (lst_a != start)
 	{
-		printf("num noeud = %d, data = %d, index = %d", i, (*lst_a)->data, (*lst_a)->index);
+		printf("num noeud = %d, data = %d, index = %d", i, lst_a->data, lst_a->index);
 		i++;
-		(*lst_a) = (*lst_a)->next;
-	}
-	
+		lst_a = lst_a->next;
+	}	
 }

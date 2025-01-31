@@ -47,33 +47,33 @@ void	add_node_front(t_dclist **lst, t_dclist *new)
 	}
 }
 
-void	add_node_back(t_dclist **lst, t_dclist *new)
+void	add_node_back(t_dclist *lst, t_dclist *new)
 {
 	t_dclist *last;
 
 	if (lst == NULL)
 	{
-		(*lst)->next = new;
-		(*lst)->prev = new;
-		*lst = new;
+		new->next = new;
+		new->prev = new;
+		lst = new;
 	}
 	else
 	{
-		last = (*lst)->prev;
-		new->next = *lst;
+		last = lst->prev;
+		new->next = lst;
 		new->prev = last;
 		last->next = new;
-		(*lst)->prev = new;
+		lst->prev = new;
 	}
 }
 
 void	del_node(t_dclist *lst)
 {
-	if (!lst)
-		return ;
 	t_dclist	*current;
 
-	*current = *lst;
+	if (!lst)
+		return ;
+	current = lst;
 	current->prev->next = current->next;
 	current->next->prev = current->prev;
 	if (lst == current)

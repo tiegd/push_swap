@@ -19,19 +19,19 @@
 
 typedef	struct s_dclist
 {
-	int				*data;
-	int				*index;
+	int				data;
+	int				index;
 	struct s_dclist	*prev;
 	struct s_dclist	*next;
 }					t_dclist;
 
-int	ft_isdigit(int size, char **input);
+int	check_digit(int size, char **input);
 int	ft_isdup(int size, char **input);
 int	is_to_long(int size, char **input);
 int	ft_check(int size, char **arg);
 t_dclist	*new_node(int content, int index);
 void	add_node_front(t_dclist **lst, t_dclist *new);
-void	add_node_back(t_dclist **lst, t_dclist *new);
+void	add_node_back(t_dclist *lst, t_dclist *new);
 void	del_node(t_dclist *lst);
 t_dclist	*fill_stack_a(int size, char **input);
 void	fill_index(int size, t_dclist **lst_a);

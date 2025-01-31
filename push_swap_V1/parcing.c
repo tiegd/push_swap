@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_isdigit(int size, char **input)
+int	check_digit(int size, char **input)
 {
 	int i;
 	int j;
@@ -23,7 +23,7 @@ int	ft_isdigit(int size, char **input)
 		j = 0;
 		while (input[i][j])
 		{
-			if (input[i][j] < 48 || input[i][j] > 57)
+			if (!ft_isdigit(input[i][j]))
 				return (0);
 			j++;
 		}
@@ -45,7 +45,7 @@ int	ft_isdup(int size, char **input)
 		j = i + 1;
 		while (j != size)
 		{
-			while (input[i][index] || input[j][index])
+			while (input[i][index]!= '\0' || input[j][index] != '\0')
 			{
 				if (input[i][index] == '\0')
 					return (0);
@@ -53,6 +53,7 @@ int	ft_isdup(int size, char **input)
 			}
 			j++;
 		}
+		i++;
 	}
 	return (1);
 }
@@ -68,13 +69,14 @@ int	is_to_long(int size, char **input)
 			return (0);
 		if (ft_strlen(input[i]) >= 10)
 			return (0);
+		i++;
 	}
 	return (1);
 }
 
 int	ft_check(int size, char **arg)
 {
-		if (!(ft_isdigit(size, arg)))
+		if (!(check_digit(size, arg)))
 			return (0);
 		if (!(ft_isdup(size, arg)))
 			return (0);
