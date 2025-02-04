@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/31 17:13:24 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:14:31 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_list_i
 
 int	ft_parser(int size, char **input);
 int	ft_isdup(int size, char **input);
+int	check_number(int size, char **input);
+int	is_to_long(int size, char **input);
+int	ft_parser(int size, char **input);
 
 #endif
 

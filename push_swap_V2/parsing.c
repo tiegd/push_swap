@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/31 17:13:49 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:47:42 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_isdup(int size, char **input)
 	while (i < size)
 	{
 		j = i + 1;
-		while (j <= size)
+		while (j < size)
 		{
-			if (!ft_strncmp(input[i], input[j], 13))
+			if (ft_strncmp(input[i], input[j], (size_t) 13) == 0)
 				return(0);
 			j++;
 		}
@@ -32,7 +32,49 @@ int	ft_isdup(int size, char **input)
 	return (1);
 }
 
-// int	ft_parser(int size, char **input)
-// {
+int	check_number(int size, char **input)
+{
+	int	i;
+	int	j;
 	
-// }
+	i = 1;
+	while (i < size)
+	{
+		j = 0;
+		if (input[i][0] == '-')
+			j++;
+		while (input[i][j])
+		{
+			if (!ft_isdigit(input[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	is_to_long(int size, char **input)
+{
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (ft_strlen(input[i]) > 11)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_parser(int size, char **input)
+{
+	if (!is_to_long(size, input))
+		return (0);
+	if (!ft_isdup(size, input))
+		return (0);
+	if (!check_number(size, input))
+		return (0);
+	return (1);
+}

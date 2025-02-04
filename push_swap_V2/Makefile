@@ -6,7 +6,7 @@
 #    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:59:43 by gaducurt          #+#    #+#              #
-#    Updated: 2025/01/31 16:21:44 by gaducurt         ###   ########.fr        #
+#    Updated: 2025/02/04 14:18:54 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g3
 
-HEADER = 	libft.h	\
+HEADER = 	Libft/libft.h	\
 			push_swap.h
 
 SRC = 	main.c				\
@@ -28,18 +28,22 @@ LIBS = Libft/libft.a
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all: libft $(NAME)
+
+libft:
+	$(MAKE) -C Libft
 
 $(NAME): $(OBJ) $(HEADER) $(LIBS)
-	ar rcs $(NAME) $?
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 
-%.o : %.c Makefile
+%.o : %.c Makefile $(LIBS)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
+	$(MAKE) clean -C Libft
 	rm -f $(OBJ)
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) Libft/libft.a
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all clean fclean re libft
