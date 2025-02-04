@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 15:45:32 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/04 17:55:21 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/02/04 18:28:14 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	fill_lst(t_list new, t_list **lst)
 {
-	if (argc < 2)
-		return (0);
-	if (ft_parser(argc, argv))
-	{
-		
-		printf("Le parser fonctionne\n");
-	}
-	if (!ft_parser(argc, argv))
-		return (0);
+	
+}
+
+void	add_index(int index, t_list **lst)
+{
+	
+}
+
+void	lst_new_index(int data, int index)
+{
+	
 }
