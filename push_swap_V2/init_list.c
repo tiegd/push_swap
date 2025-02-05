@@ -12,12 +12,43 @@
 
 #include "push_swap.h"
 
-void	fill_lst(t_list new, t_list **lst)
+void	fill_lst(t_clist **lst, char **input, int size)
 {
-	
+	int		i;
+	int		data;
+	t_clist	*tmp;
+	t_clist	*new;
+
+	if (!(*lst))
+		return ;
+	if (lst)
+	{
+		tmp = *lst;
+		i = 1;
+		while (i < size)
+		{
+			data = ft_atoi(input[i]);
+			new = lst_new(data);
+			ft_lstadd_back(tmp, new);
+			i++;
+		}
+	}
+	lst_display(lst);
 }
 
-void	add_index(int index, t_list **lst)
+t_clist	*lst_new(int data)
+{
+	t_clist	*new;
+
+	new = malloc(sizeof(t_clist));
+	if (!new)
+		return (NULL);
+	new->data = data;
+	new->next = NULL;
+	retrun (new);
+}
+
+void	add_index(int index, t_clist **lst)
 {
 	
 }

@@ -23,6 +23,7 @@ SRC = 	main.c				\
 		parsing.c			\
 		push_swap_utils.c	\
 		push_swap.c			\
+		init_list.c			\
 
 LIBS = Libft/libft.a
 

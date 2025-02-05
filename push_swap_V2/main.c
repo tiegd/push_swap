@@ -12,13 +12,27 @@
 
 #include "push_swap.h"
 
+void	lst_display(t_clist *lst)
+{
+	t_clist	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+	{
+		printf("data = %d\n", lst->data);
+		tmp = tmp->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
+	t_clist	*lst;
+
 	if (argc < 2)
 		return (0);
 	if (ft_parser(argc, argv))
 	{
-		
+		fill_lst(&lst, argv, argc);
 		printf("Le parser fonctionne\n");
 	}
 	if (!ft_parser(argc, argv))
