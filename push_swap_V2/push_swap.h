@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/04 15:14:31 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:27:14 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int		is_to_long(int size, char **input);
 int		ft_parser(int size, char **input);
 void	fill_lst(t_clist **lst, char **input, int size);
 t_clist	*lst_new(int data);
-void	add_index(int index, t_clist **lst);
-void	lst_new_index(int data, int index);
+void	add_index(int size, t_clist **lst);
+void	lst_add_back(t_clist **lst, t_clist *new);
+void	lst_display(t_clist *lst);
 
 #endif
 
