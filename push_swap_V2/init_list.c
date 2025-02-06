@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/06 17:19:13 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:33:54 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	fill_lst(t_clist **lst, char **input, int size)
 		i = 1;
 		while (i < size)
 		{
-			data = ft_atoi(input[i]);
+			data = atoi_ps(input[i]);
 			new = lst_new(data);
 			lst_add_back(&tmp, new);
 			i++;

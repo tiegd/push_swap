@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/06 16:27:14 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/06 18:32:41 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_clist	*lst_new(int data);
 void	add_index(int size, t_clist **lst);
 void	lst_add_back(t_clist **lst, t_clist *new);
 void	lst_display(t_clist *lst);
+int		atoi_ps(const char *nptr);
+int		check_lst(t_clist **lst);
 
 #endif
 
