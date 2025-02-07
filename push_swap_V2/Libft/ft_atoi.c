@@ -6,13 +6,13 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 12:37:28 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/01/31 15:50:40 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:12:00 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr, int *error)
 {
 	int	count;
 	int	inv;
@@ -32,9 +32,9 @@ int	ft_atoi(const char *nptr)
 		count = (count * 10) + (*nptr - '0');
 		if ((unsigned long long) count > (unsigned long long)INT_MAX + 1
 			&& inv == -1)
-			return (INT_MIN);
+			error++;
 		else if ((unsigned long long) count > INT_MAX && inv == 1)
-			return (INT_MAX);
+			error++;
 		nptr++;
 	}
 	return (count * inv);

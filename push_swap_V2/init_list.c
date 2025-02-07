@@ -6,34 +6,36 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/06 17:33:54 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:57:25 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_lst(t_clist **lst, char **input, int size)
+int	fill_lst(t_clist **lst, char **input, int size)
 {
 	int		i;
 	int		data;
-	t_clist	*tmp;
+	int		error;
 	t_clist	*new;
 
-	if (!lst)
-		return ;
+	i = 1;
+	error = 0;
 	if (lst)
 	{
-		tmp = *lst;
-		i = 1;
 		while (i < size)
 		{
-			data = atoi_ps(input[i]);
+			data = atoi_ps(input[i], &error);
+			printf("fill_lst -> atoi_ps error = %d\n", error);
+			if (error != 0)
+				return (0);
 			new = lst_new(data);
-			lst_add_back(&tmp, new);
+			lst_add_back(lst, new);
 			i++;
 		}
-		add_index(size - 2, &tmp);
+		add_index(size - 2, lst);
 	}
+	return (1);
 }
 
 t_clist	*lst_new(int data)
@@ -42,7 +44,10 @@ t_clist	*lst_new(int data)
 
 	new = malloc(sizeof(t_clist));
 	if (!new)
+	{
+		free(new);
 		return (NULL);
+	}
 	new->data = data;
 	new->next = NULL;
 	return (new);
@@ -59,19 +64,21 @@ t_clist	*lst_last(t_clist *lst)
 
 void	lst_add_back(t_clist **lst, t_clist *new)
 {
-	t_clist	*ptr;
+	t_clist	*tmp;
 
+	tmp = (*lst);
 	if (!new)
 		return ;
-	if (lst)
+	if (!*lst)
 	{
-		if (*lst == 0)
-			*lst = new;
-		else
-		{
-			ptr = lst_last(*lst);
-			ptr->next = new;
-		}
+		*lst = new;
+		return ;
+	}
+	else
+	{
+		tmp = lst_last(*lst);
+		// printf("Dans lst_addback :\ntmp->data = %d\n\n", tmp->data);
+		tmp->next = new;
 	}
 }
 
@@ -82,6 +89,7 @@ void	add_index(int size, t_clist **lst)
 	t_clist	*current;
 
 	current = *lst;
+	// printf("lst->data = %d\nlst->index = %d\n\n", current->data, current->index);
 	while (current)
 	{
 		i = size;
@@ -93,6 +101,17 @@ void	add_index(int size, t_clist **lst)
 			head = head->next;
 		}
 		current->index = i;
+		// printf("lst->data = %d\nlst->index = %d\n\n", current->data, current->index);
 		current = current->next;
 	}
 }
+
+// void	lst_free(t_clist **lst)
+// {
+// 	if (lst)
+// 	{
+// 		free((*lst)->data);
+// 		free((*lst)->index);
+// 	}
+// 	free(*lst);
+// }
