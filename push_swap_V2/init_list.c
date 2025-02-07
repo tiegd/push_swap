@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/07 18:57:25 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:39:18 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	fill_lst(t_clist **lst, char **input, int size)
 		while (i < size)
 		{
 			data = atoi_ps(input[i], &error);
-			printf("fill_lst -> atoi_ps error = %d\n", error);
 			if (error != 0)
 				return (0);
 			new = lst_new(data);

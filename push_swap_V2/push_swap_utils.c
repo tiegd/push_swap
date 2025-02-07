@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:23:44 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/07 18:58:41 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:38:45 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ int	atoi_ps(const char *nptr, int *error)
 		count = (count * 10) + (*nptr - '0');
 		if ((unsigned long long) count > (unsigned long long)INT_MAX + 1
 			&& inv == -1)
-			error++;
+			*error += 1;
 		else if ((unsigned long long) count > INT_MAX && inv == 1)
-			error++;
+			*error += 1;
 		nptr++;
 	}
-	printf("error atoi_ps = %d\n", *error);
 	return (count * inv);
 }
