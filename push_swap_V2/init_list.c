@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/07 19:39:18 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:45:36 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	lst_add_back(t_clist **lst, t_clist *new)
 	else
 	{
 		tmp = lst_last(*lst);
-		// printf("Dans lst_addback :\ntmp->data = %d\n\n", tmp->data);
 		tmp->next = new;
 	}
 }
@@ -88,7 +87,6 @@ void	add_index(int size, t_clist **lst)
 	t_clist	*current;
 
 	current = *lst;
-	// printf("lst->data = %d\nlst->index = %d\n\n", current->data, current->index);
 	while (current)
 	{
 		i = size;
@@ -100,7 +98,6 @@ void	add_index(int size, t_clist **lst)
 			head = head->next;
 		}
 		current->index = i;
-		// printf("lst->data = %d\nlst->index = %d\n\n", current->data, current->index);
 		current = current->next;
 	}
 }
