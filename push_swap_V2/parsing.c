@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/07 18:39:18 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:29:10 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_number(int size, char **input)
 	while (i < size)
 	{
 		j = 0;
-		if (input[i][0] == '-')
+		if (input[i][0] == '-' && ft_strlen(input[i]) > 1)
 			j++;
 		while (input[i][j])
 		{
@@ -77,4 +77,31 @@ int	ft_parser(int size, char **input)
 	if (!check_number(size, input))
 		return (0);
 	return (1);
+}
+
+int	check_args(t_clist **lst_a, char **input, int size)
+{
+	char	**new_tab;
+	int		i;
+	
+	i = 0;
+	if (size == 2)
+	{
+		new_tab = ft_split(input[1], ' ');
+		while (new_tab[i])
+			i++;
+		size = i;
+		if (ft_parser(size, new_tab))
+		{
+			fill_lst(lst_a, new_tab, size);
+			free_all(new_tab);
+			return (1);
+		}
+	}
+	else if (ft_parser(size, input))
+	{
+		fill_lst(lst_a, input, size);
+		return (1);
+	}
+	return (0);
 }
