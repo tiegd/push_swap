@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/10 19:15:17 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:55:18 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,12 @@ int		atoi_ps(const char *nptr, int *error);
 void	free_node(t_clist *lst);
 int		check_args(t_clist **lst_a, char **input, int size);
 void	free_all(char **tab);
-int	nb_word(const char *s, char c);
+int		nb_word(const char *s, char c);
+void	sa(t_clist **lst_a);
+void	swap(t_clist **lst);
+void	sa(t_clist **lst_a);
+void	sb(t_clist **lst_b);
+void	ss(t_clist **lst_a, t_clist **lst_b);
 
 #endif
 

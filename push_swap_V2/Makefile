@@ -6,7 +6,7 @@
 #    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:59:43 by gaducurt          #+#    #+#              #
-#    Updated: 2025/02/10 18:05:48 by gaducurt         ###   ########.fr        #
+#    Updated: 2025/02/10 19:53:06 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = 	main.c				\
 		push_swap.c			\
 		init_list.c			\
 		print_lst.c			\
+		swap.c				\
 
 LIBS = Libft/libft.a
 
