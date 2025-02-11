@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:45:32 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 14:52:30 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:52:42 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 int	main(int argc, char **argv)
 {
-	t_clist	*lst;
-	t_clist	*lst2;
+	t_clist	*lst_a;
+	t_clist	*lst_b;
 
 	if (argc < 2)
 		return (0);
-	lst = malloc(sizeof(t_clist));
-	if (!lst)
+	lst_a = malloc(sizeof(t_clist));
+	if (!lst_a)
 		return (0);
-	lst = NULL;
-	if (check_args(&lst, argv, argc))
+	lst_a = NULL;
+	lst_b = lst_a;
+	if (check_args(&lst_a, argv, argc))
 	{
-		lst2 = lst;
-		// push_swap(lst);
-		rra(&lst);
-		print_lst(&lst);
-		// print_lst(&lst2);
+		// push_swap(lst_a);
+		// print_lst(&lst_a);
+		pb(&lst_a, &lst_b);
+		print_lst(&lst_b);
 	}
 	if (!ft_parser(argc, argv))
 	{

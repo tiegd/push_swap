@@ -6,21 +6,24 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 13:49:18 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:50:23 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	fill_lst(t_clist **lst, char **input, int size)
+int	fill_lst(t_clist **lst, char **input, int size, int i)
 {
-	int		i;
 	int		data;
 	int		error;
+	int		nb_args;
 	t_clist	*new;
 
-	i = 1;
 	error = 0;
+	if (i == 0)
+		nb_args = 1;
+	else
+		nb_args = 2;
 	if (lst)
 	{
 		while (i < size)
@@ -32,7 +35,7 @@ int	fill_lst(t_clist **lst, char **input, int size)
 			lst_add_back(lst, new);
 			i++;
 		}
-		add_index(size - 2, lst);
+		add_index(size - nb_args, lst);
 	}
 	return (1);
 }

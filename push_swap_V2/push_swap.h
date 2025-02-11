@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 15:16:00 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:38:37 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_isdup(int size, char **input);
 int		check_number(int size, char **input);
 int		is_to_long(int size, char **input);
 int		ft_parser(int size, char **input);
-int		fill_lst(t_clist **lst, char **input, int size);
+int		fill_lst(t_clist **lst, char **input, int size, int i);
 t_clist	*lst_new(int data, int index);
 t_clist	*lst_last(t_clist *lst);
 void	add_index(int size, t_clist **lst);
