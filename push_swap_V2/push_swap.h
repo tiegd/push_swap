@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/10 19:55:18 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:16:00 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int		check_number(int size, char **input);
 int		is_to_long(int size, char **input);
 int		ft_parser(int size, char **input);
 int		fill_lst(t_clist **lst, char **input, int size);
-t_clist	*lst_new(int data);
+t_clist	*lst_new(int data, int index);
+t_clist	*lst_last(t_clist *lst);
 void	add_index(int size, t_clist **lst);
 void	lst_add_back(t_clist **lst, t_clist *new);
 void	lst_display(t_clist *lst);
@@ -39,11 +40,6 @@ void	free_node(t_clist *lst);
 int		check_args(t_clist **lst_a, char **input, int size);
 void	free_all(char **tab);
 int		nb_word(const char *s, char c);
-void	sa(t_clist **lst_a);
-void	swap(t_clist **lst);
-void	sa(t_clist **lst_a);
-void	sb(t_clist **lst_b);
-void	ss(t_clist **lst_a, t_clist **lst_b);
 
 #endif
 
