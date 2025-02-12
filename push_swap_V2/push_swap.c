@@ -12,4 +12,7 @@
 
 #include "push_swap.h"
 
-
+void	radix(t_clist **lst_a, t_clist **lst_b)
+{
+	
+}

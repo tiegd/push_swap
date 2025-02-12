@@ -14,12 +14,15 @@
 
 int	bit_cmp(int a, int b)
 {
-	
+	if (a & b == b)
+        return (1);
+    return (0);
 }
 
 int	bit_shift(int a)
 {
-	
+	a = a << 1;
+    return (a);
 }
 
 

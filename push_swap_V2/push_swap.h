@@ -16,6 +16,8 @@
 # include "./Libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
+# include "rules.h"
+# include "radix.h"
 
 typedef struct s_clist
 {
