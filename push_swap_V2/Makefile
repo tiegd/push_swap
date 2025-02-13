@@ -6,7 +6,7 @@
 #    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:59:43 by gaducurt          #+#    #+#              #
-#    Updated: 2025/02/13 13:43:02 by gaducurt         ###   ########.fr        #
+#    Updated: 2025/02/13 17:45:56 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ HEADER = 	Libft/libft.h	\
 
 SRC = 	main.c				\
 		parsing.c			\
+		parsing_utils.c		\
 		push_swap_utils.c	\
 		push_swap.c			\
 		init_list.c			\

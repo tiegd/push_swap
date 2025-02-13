@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/13 13:42:45 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:16:58 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	rrr(t_clist **lst_a, t_clist **lst_b);
 int	    already_sorted(t_clist **lst_a);
 void	radix(t_clist **lst_a, t_clist **lst_b);
 int 	bit_cmp(int a, int b);
+int		lst_size(t_clist *lst);
 
 #endif
 
