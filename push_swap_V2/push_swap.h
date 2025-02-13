@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 15:38:37 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:42:45 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "./Libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
-# include "rules.h"
-# include "radix.h"
 
 typedef struct s_clist
 {
@@ -42,6 +40,24 @@ void	free_node(t_clist *lst);
 int		check_args(t_clist **lst_a, char **input, int size);
 void	free_all(char **tab);
 int		nb_word(const char *s, char c);
+void	swap(t_clist **lst);
+void	sa(t_clist **lst_a);
+void	sb(t_clist **lst_b);
+void	ss(t_clist **lst_a, t_clist **lst_b);
+void	push(t_clist **src, t_clist **dest);
+void	pa(t_clist **lst_b, t_clist **lst_a);
+void	pb(t_clist **lst_a, t_clist **lst_b);
+void	rotate(t_clist **lst);
+void	ra(t_clist **lst_a);
+void	rb(t_clist **lst_b);
+void	rr(t_clist **lst_a, t_clist **lst_b);
+void	rev_rotate(t_clist **lst);
+void	rra(t_clist **lst_a);
+void	rrb(t_clist **lst_b);
+void	rrr(t_clist **lst_a, t_clist **lst_b);
+int	    already_sorted(t_clist **lst_a);
+void	radix(t_clist **lst_a, t_clist **lst_b);
+int 	bit_cmp(int a, int b);
 
 #endif
 

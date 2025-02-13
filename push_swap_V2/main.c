@@ -6,12 +6,11 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:45:32 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 15:52:42 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:43:26 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "rules.h"
 
 int	main(int argc, char **argv)
 {
@@ -27,9 +26,9 @@ int	main(int argc, char **argv)
 	lst_b = lst_a;
 	if (check_args(&lst_a, argv, argc))
 	{
-		// push_swap(lst_a);
+		radix(&lst_a, &lst_b);
 		// print_lst(&lst_a);
-		pb(&lst_a, &lst_b);
+		// pb(&lst_a, &lst_b);
 		print_lst(&lst_b);
 	}
 	if (!ft_parser(argc, argv))
