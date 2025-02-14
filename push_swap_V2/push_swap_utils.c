@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:23:44 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 13:24:23 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:10:40 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,4 @@ void	sort_five(t_clist **lst)
 		count++;
 	}
 	printf("nb operation = %d\n\n", count);
-}
-
-void	init_lst_b(t_clist **lst_b)
-{
-	t_clist	*new;
-
-	new = lst_new(0, 0);
-	*lst_b = new;
-	// lst_add_back(lst_b, new);
 }

@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 14:48:22 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:10:46 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void	lil_sort(t_clist **lst);
 void	sort_three(t_clist **lst);
 void	sort_four(t_clist **lst);
 void	sort_five(t_clist **lst);
-void	init_lst_b(t_clist **lst_b);
 
 #endif
 

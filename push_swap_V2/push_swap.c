@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:14 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 16:04:35 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:22:50 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,47 +44,27 @@ void	lil_sort(t_clist **lst)
 void	radix(t_clist **lst_a, t_clist **lst_b, int size_a)
 {
     int 	mask;
-	int		count;
 	int		i;
-	// int		size_b;
 
 	mask = 1;
-	count = 0;
 	if (lst_size(*lst_a) <= 5)
 		lil_sort(lst_a);
-	// init_lst_b(lst_b);
 	while (!is_sorted(lst_a))
 	// while (mask < 100)
 	{
 		printf("lst_a = \n");
 		print_lst(lst_a);
 		i = 0;
-		// while (*lst_a != last)
-		while (i < size_a)
+		while (i <= size_a)
 		{
 			if (((*lst_a)->index & mask) == mask)
 				ra(lst_a);
 			if (((*lst_a)->index & mask) != mask)
 				pb(lst_a, lst_b);
-			// print_lst(lst_a);
-			// print_lst(lst_b);
 			i++;
-			count++;
 		}
-		// size_b = lst_size(*lst_b);
-		// printf("size_b = %d\n", size_b);
-		// printf("lst_a = \n");
-		// print_lst(lst_a);
-		// printf("lst_b = \n");
-		// print_lst(lst_b);
-		// i = 0;
 		while (*lst_b)
-		// while (i < size_b)
-		{
 			pa(lst_b, lst_a);
-			i++;
-			count++;
-		}
 		mask = mask << 1;
 		printf("mask = %d\n", mask);
 	}
