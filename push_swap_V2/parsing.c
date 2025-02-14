@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 15:50:38 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:58:58 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int	check_args(t_clist **lst_a, char **input, int size)
 		fill_lst(lst_a, input, size, 1);
 		return (1);
 	}
+	write(1, "Error\n", 6);
 	return (0);
 }

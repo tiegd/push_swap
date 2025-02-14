@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:49:49 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 14:30:39 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:39:03 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	push(t_clist **src, t_clist **dest)
 	t_clist *tmp;
 
 	tmp = *dest;
+	if (*src == NULL)
+		return ;
 	new = lst_new((*src)->data, (*src)->index);
 	new->next = tmp;
 	*dest = new;

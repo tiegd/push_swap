@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/13 19:16:58 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:48:22 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	free_node(t_clist *lst);
 int		check_args(t_clist **lst_a, char **input, int size);
 void	free_all(char **tab);
 int		nb_word(const char *s, char c);
+
 void	swap(t_clist **lst);
 void	sa(t_clist **lst_a);
 void	sb(t_clist **lst_b);
@@ -55,10 +56,16 @@ void	rev_rotate(t_clist **lst);
 void	rra(t_clist **lst_a);
 void	rrb(t_clist **lst_b);
 void	rrr(t_clist **lst_a, t_clist **lst_b);
-int	    already_sorted(t_clist **lst_a);
-void	radix(t_clist **lst_a, t_clist **lst_b);
+
+int	    is_sorted(t_clist **lst_a);
+void	radix(t_clist **lst_a, t_clist **lst_b, int size);
 int 	bit_cmp(int a, int b);
 int		lst_size(t_clist *lst);
+void	lil_sort(t_clist **lst);
+void	sort_three(t_clist **lst);
+void	sort_four(t_clist **lst);
+void	sort_five(t_clist **lst);
+void	init_lst_b(t_clist **lst_b);
 
 #endif
 

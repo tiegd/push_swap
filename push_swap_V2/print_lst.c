@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:00:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/10 18:08:05 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:50:10 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	print_lst(t_clist **lst)
 {
-	while (lst)
+	t_clist	*tmp;
+
+	tmp = (*lst);
+	
+	while (tmp)
 	{
-		printf("data = %d\nindex = %d\n\n", (*lst)->data, (*lst)->index);
-		*lst = (*lst)->next;
+		printf("data = %d, index = %d\n\n", tmp->data, tmp->index);
+		tmp = tmp->next;
 	}
 }
