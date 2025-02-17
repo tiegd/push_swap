@@ -6,33 +6,11 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:23:44 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 16:10:40 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:20:08 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	bit_cmp(int a, int b)
-// {
-// 	if ((a & b) == b)
-//         return (1);
-//     return (0);
-// }
-
-// int lst_size(t_clist *lst)
-// {
-// 	int	size;
-
-// 	size = 1;
-// 	if (!lst)
-// 		return (0);
-// 	while (lst->next)
-// 	{
-// 		lst = lst->next;
-// 		size++;
-// 	}
-// 	return (size);
-// }
 
 int	lst_size(t_clist *lst)
 {
@@ -51,10 +29,8 @@ int	lst_size(t_clist *lst)
 
 void	sort_three(t_clist **lst)
 {
-	int		count;
 	t_clist	*tmp;
 	
-	count = 0;
 	while (!is_sorted(lst))
 	{
 		tmp = (*lst)->next;
@@ -64,51 +40,54 @@ void	sort_three(t_clist **lst)
 			ra(lst);
 		if ((*lst)->index > tmp->index)
 			sa(lst);
-		count++;
 	}
-	printf("nb operation = %d\n\n", count);
 }
 
-void	sort_four(t_clist **lst)
+void	sort_four(t_clist **lst_a, t_clist **lst_b)
 {
-	int		count;
 	t_clist	*tmp;
 	
-	count = 0;
-	while (!is_sorted(lst))
+	while (lst_size(*lst_a) > 2)
 	{
-		tmp = (*lst)->next;
-		if ((*lst)->index < tmp->index)
-			ra(lst);
-		if ((*lst)->index > tmp->index)
-			sa(lst);
-		// if (tmp->index == 3)
-		// 	sa(lst);
-		if ((*lst)->index == 3)
-			ra(lst);
-		count++;
+		if ((*lst_a)->index < 2)
+			pb(lst_a, lst_b);
+		else if ((*lst_a)->index > 1)
+			ra(lst_a);
 	}
-	printf("nb operation = %d\n\n", count);
+	tmp = *lst_a;
+	while (tmp)
+	{
+		tmp->index = tmp->index - 2;
+		tmp = tmp->next;
+	}
+	if ((*lst_b)->index < (*lst_b)->next->index)
+		sb(lst_b);
+	if ((*lst_a)->index > (*lst_a)->next->index)
+		sa(lst_a);
+	pa(lst_b, lst_a);
+	pa(lst_b, lst_a);
 }
 
-void	sort_five(t_clist **lst)
+void	sort_five(t_clist **lst_a, t_clist **lst_b)
 {
-	int		count;
 	t_clist	*tmp;
 	
-	count = 0;
-	while (!is_sorted(lst))
+	while (lst_size(*lst_a) > 3)
 	{
-		tmp = (*lst)->next;
-		if ((*lst)->index < tmp->index)
-			ra(lst);
-		if ((*lst)->index > tmp->index)
-			sa(lst);
-		// if (tmp->index == 4)
-		// 	sa(lst);
-		if ((*lst)->index == 4)
-			ra(lst);
-		count++;
+		if ((*lst_a)->index < 2)
+			pb(lst_a, lst_b);
+		else if ((*lst_a)->index > 1)
+			ra(lst_a);
 	}
-	printf("nb operation = %d\n\n", count);
+	tmp = *lst_a;
+	while (tmp)
+	{
+		tmp->index = tmp->index - 2;
+		tmp = tmp->next;
+	}
+	if ((*lst_b)->index < (*lst_b)->next->index)
+		sb(lst_b);
+	sort_three(lst_a);
+	pa(lst_b, lst_a);
+	pa(lst_b, lst_a);
 }

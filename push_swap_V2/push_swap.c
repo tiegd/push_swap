@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:14 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 16:22:50 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:14:48 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,44 +29,58 @@ int	is_sorted(t_clist **lst_a)
 	return (1);
 }
 
-void	lil_sort(t_clist **lst)
+void	lil_sort(t_clist **lst_a, t_clist **lst_b)
 {
-	if (is_sorted(lst))
+	if (is_sorted(lst_a))
 		return ;
-	if (lst_size(*lst) == 3)
-		sort_three(lst);
-	if (lst_size(*lst) == 4)
-		sort_four(lst);
-	if (lst_size(*lst) == 5)
-		sort_five(lst);
+	if (lst_size(*lst_a) == 2)
+		sa(lst_a);
+	if (lst_size(*lst_a) == 3)
+		sort_three(lst_a);
+	if (lst_size(*lst_a) == 4)
+		sort_four(lst_a, lst_b);
+	if (lst_size(*lst_a) == 5)
+		sort_five(lst_a, lst_b);
+}
+
+static int	count_bit(int n)
+{
+	int	count;
+
+	count = 0;
+	while (n > 0)
+	{
+		n = n >> 1;
+		count++;
+	}
+	return (count);
 }
 
 void	radix(t_clist **lst_a, t_clist **lst_b, int size_a)
 {
-    int 	mask;
 	int		i;
+	int		bit;
+	int		bit_max;
 
-	mask = 1;
-	if (lst_size(*lst_a) <= 5)
-		lil_sort(lst_a);
-	while (!is_sorted(lst_a))
-	// while (mask < 100)
+	bit = 0;
+	bit_max = count_bit(size_a);
+	if (size_a <= 5)
+		lil_sort(lst_a, lst_b);
+	else
 	{
-		printf("lst_a = \n");
-		print_lst(lst_a);
-		i = 0;
-		while (i <= size_a)
+		while (bit < bit_max)
 		{
-			if (((*lst_a)->index & mask) == mask)
-				ra(lst_a);
-			if (((*lst_a)->index & mask) != mask)
-				pb(lst_a, lst_b);
-			i++;
+			i = 1;
+			while (i++ <= size_a)
+			{
+				if (((*lst_a)->index >> bit & 1) == 1)
+					ra(lst_a);
+				else
+					pb(lst_a, lst_b);
+			}
+			while (*lst_b)
+				pa(lst_b, lst_a);
+			bit++;
 		}
-		while (*lst_b)
-			pa(lst_b, lst_a);
-		mask = mask << 1;
-		printf("mask = %d\n", mask);
 	}
-	// printf("nb operation = %d\n\n", count);
 }
