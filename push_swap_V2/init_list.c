@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 13:13:09 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:37:44 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	fill_lst(t_clist **lst, char **input, int size, int i)
 			i++;
 		}
 		add_index(size - nb_args, lst);
+		print_lst(lst);
 	}
 	return (1);
 }
@@ -66,19 +67,17 @@ void	lst_add_back(t_clist **lst, t_clist *new)
 {
 	t_clist	*tmp;
 
-	tmp = (*lst);
+	// tmp = (*lst);
 	if (!new)
 		return ;
-	if (!*lst)
+	if (!lst || !*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	else
-	{
-		tmp = lst_last(*lst);
+	tmp = lst_last(*lst);
+	if (tmp)
 		tmp->next = new;
-	}
 }
 
 void	add_index(int size, t_clist **lst)
