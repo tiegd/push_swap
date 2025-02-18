@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/17 18:15:04 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:34:19 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	add_index(int size, t_clist **lst);
 void	lst_add_back(t_clist **lst, t_clist *new);
 void	lst_display(t_clist *lst);
 int		atoi_ps(const char *nptr, int *error);
-void	free_node(t_clist *lst);
 int		check_args(t_clist **lst_a, char **input, int size);
 void	free_all(char **tab);
 int		nb_word(const char *s, char c);
+void	free_lst(t_clist **lst);
 
 void	swap(t_clist **lst);
 void	sa(t_clist **lst_a);

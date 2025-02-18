@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/14 13:58:58 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:02:06 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	check_args(t_clist **lst_a, char **input, int size)
 			free_all(new_tab);
 			return (1);
 		}
+		free_all(new_tab);
 	}
 	else if (ft_parser(size, input))
 	{

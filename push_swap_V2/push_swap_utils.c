@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:23:44 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/17 18:20:08 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:01:52 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	sort_three(t_clist **lst)
 		tmp = (*lst)->next;
 		if (tmp->index == 2)
 			sa(lst);
-		if ((*lst)->index == 2)
+		else if ((*lst)->index == 2)
 			ra(lst);
-		if ((*lst)->index > tmp->index)
+		else if ((*lst)->index > tmp->index)
 			sa(lst);
 	}
 }

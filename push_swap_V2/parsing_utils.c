@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:07:35 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 16:08:45 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:34:13 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,27 @@ int	atoi_ps(const char *nptr, int *error)
 	return (count * inv);
 }
 
-// void	free_node(t_clist *lst)
-// {
-// 	if (lst)
-// 	{
-// 		lst->data = 0;
-// 		lst->index = 0;
-// 	}
-// 	free(lst);
-// }
-
 void	free_all(char **tab)
 {
 	int	i;
 
-	i = 2;
+	i = 0;
 	while (tab[i])
 	{
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
+}
+
+void	free_lst(t_clist **lst)
+{
+	t_clist	*tmp;
+
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free(tmp);
+	}
 }

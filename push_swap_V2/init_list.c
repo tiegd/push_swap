@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/11 15:50:23 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:13:09 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ t_clist	*lst_new(int data, int index)
 
 	new = malloc(sizeof(t_clist));
 	if (!new)
-	{
-		free(new);
 		return (NULL);
-	}
 	new->data = data;
 	new->index = index;
 	new->next = NULL;
