@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 15:02:06 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:05:13 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_isdup(int size, char **input)
 		while (j < size)
 		{
 			if (ft_strncmp(input[i], input[j], (size_t) 13) == 0)
-				return(0);
+				return (0);
 			j++;
 		}
 		i++;
@@ -36,7 +36,7 @@ int	check_number(int size, char **input)
 {
 	int	i;
 	int	j;
-	
+
 	i = 1;
 	while (i < size)
 	{
@@ -79,31 +79,12 @@ int	ft_parser(int size, char **input)
 	return (1);
 }
 
-int	check_args(t_clist **lst_a, char **input, int size)
+int	tab_len(char **tab)
 {
-	char	**new_tab;
-	int		i;
-	
+	int	i;
+
 	i = 0;
-	if (size == 2)
-	{
-		new_tab = ft_split(input[1], ' ');
-		while (new_tab[i])
-			i++;
-		size = i;
-		if (ft_parser(size, new_tab))
-		{
-			fill_lst(lst_a, new_tab, size, 0);
-			free_all(new_tab);
-			return (1);
-		}
-		free_all(new_tab);
-	}
-	else if (ft_parser(size, input))
-	{
-		fill_lst(lst_a, input, size, 1);
-		return (1);
-	}
-	write(1, "Error\n", 6);
-	return (0);
+	while (tab[i])
+		i++;
+	return (i);
 }

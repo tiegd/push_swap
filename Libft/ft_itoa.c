@@ -41,13 +41,13 @@ char	*ft_itoa(int n)
 {
 	char		*dest;
 	size_t		count;
-	// int			nb;
+	int			nb;
 	size_t		i;
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	count = ft_count(n);
-	// nb = n;
+	nb = n;
 	i = 0;
 	if (n < 0 || count == 0)
 		count++;

@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:44:10 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 13:25:33 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:10:29 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate(t_clist **lst)
 	t_clist	*tmp;
 	t_clist	*new;
 	t_clist	*prev;
-	
+
 	new = lst_new((*lst)->data, (*lst)->index);
 	tmp = lst_last(*lst);
 	tmp->next = new;

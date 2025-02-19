@@ -1,48 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 14:44:21 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 13:28:08 by gaducurt         ###   ########.fr       */
+/*   Created: 2025/02/10 14:44:09 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/02/19 18:10:51 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rev_rotate(t_clist **lst)
+void	swap(t_clist **lst)
 {
-	t_clist	*new;
-	t_clist	*last;
 	t_clist	*tmp;
 
 	tmp = *lst;
-	last = lst_last(*lst);
-	new = lst_new(last->data, last->index);
-	new->next = tmp;
-	*lst = new;
-	while (tmp->next != last)
-		tmp = tmp->next;
-	tmp->next = NULL;
+	*lst = (*lst)->next;
+	tmp->next = (*lst)->next;
+	(*lst)->next = tmp;
 }
 
-void	rra(t_clist **lst_a)
+void	sa(t_clist **lst_a)
 {
-	rev_rotate(lst_a);
-	write(1, "rra\n", 4);
+	swap(lst_a);
+	write(1, "sa\n", 3);
 }
 
-void	rrb(t_clist **lst_b)
+void	sb(t_clist **lst_b)
 {
-	rev_rotate(lst_b);
-	write(1, "rrb\n", 4);
+	swap(lst_b);
+	write(1, "sb\n", 3);
 }
 
-void	rrr(t_clist **lst_a, t_clist **lst_b)
+void	ss(t_clist **lst_a, t_clist **lst_b)
 {
-	rev_rotate(lst_a);
-	rev_rotate(lst_b);
-	write(1, "rrr\n", 4);
+	swap(lst_a);
+	swap(lst_b);
+	write(1, "ss\n", 3);
 }

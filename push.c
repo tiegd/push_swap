@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 13:49:49 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 13:24:24 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:08:21 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push(t_clist **src, t_clist **dest)
 {
 	t_clist	*new;
-	t_clist *tmp;
+	t_clist	*tmp;
 	t_clist	*prev;
 
 	tmp = *dest;

@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:23:44 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 14:01:52 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:06:22 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	lst_size(t_clist *lst)
 void	sort_three(t_clist **lst)
 {
 	t_clist	*tmp;
-	
+
 	while (!is_sorted(lst))
 	{
 		tmp = (*lst)->next;
@@ -46,7 +46,7 @@ void	sort_three(t_clist **lst)
 void	sort_four(t_clist **lst_a, t_clist **lst_b)
 {
 	t_clist	*tmp;
-	
+
 	while (lst_size(*lst_a) > 2)
 	{
 		if ((*lst_a)->index < 2)
@@ -71,7 +71,7 @@ void	sort_four(t_clist **lst_a, t_clist **lst_b)
 void	sort_five(t_clist **lst_a, t_clist **lst_b)
 {
 	t_clist	*tmp;
-	
+
 	while (lst_size(*lst_a) > 3)
 	{
 		if ((*lst_a)->index < 2)

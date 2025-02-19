@@ -6,11 +6,11 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:17 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 18:07:32 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:26:11 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "./Libft/libft.h"
@@ -29,17 +29,19 @@ int		ft_isdup(int size, char **input);
 int		check_number(int size, char **input);
 int		is_to_long(int size, char **input);
 int		ft_parser(int size, char **input);
-int		fill_lst(t_clist **lst, char **input, int size, int i);
+t_clist	*fill_lst(char **input, int size);
 t_clist	*lst_new(int data, int index);
 t_clist	*lst_last(t_clist *lst);
 void	add_index(int size, t_clist **lst);
 void	lst_add_back(t_clist **lst, t_clist *new);
 void	lst_display(t_clist *lst);
 int		atoi_ps(const char *nptr, int *error);
-int		check_args(t_clist **lst_a, char **input, int size);
+int		check_args(char **tab, int size);
 void	free_all(char **tab);
 int		nb_word(const char *s, char c);
 void	free_lst(t_clist **lst);
+int		tab_len(char **tab);
+char	**fill_new_tab(char **tab);
 
 void	swap(t_clist **lst);
 void	sa(t_clist **lst_a);
@@ -57,7 +59,7 @@ void	rra(t_clist **lst_a);
 void	rrb(t_clist **lst_b);
 void	rrr(t_clist **lst_a, t_clist **lst_b);
 
-int	    is_sorted(t_clist **lst_a);
+int		is_sorted(t_clist **lst_a);
 void	radix(t_clist **lst_a, t_clist **lst_b, int size);
 int		lst_size(t_clist *lst);
 void	lil_sort(t_clist **lst_a, t_clist **lst_b);
@@ -66,4 +68,3 @@ void	sort_four(t_clist **lst_a, t_clist **lst_b);
 void	sort_five(t_clist **lst_a, t_clist **lst_b);
 
 #endif
-

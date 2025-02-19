@@ -6,45 +6,40 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:02:45 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/18 18:37:44 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:59:16 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	fill_lst(t_clist **lst, char **input, int size, int i)
+t_clist	*fill_lst(char **input, int size)
 {
 	int		data;
-	int		error;
-	int		nb_args;
+	int		i;
+	t_clist	*lst;
 	t_clist	*new;
 
-	error = 0;
-	if (i == 0)
-		nb_args = 1;
-	else
-		nb_args = 2;
-	if (lst)
+	i = 0;
+	lst = NULL;
+	while (i < size)
 	{
-		while (i < size)
-		{
-			data = atoi_ps(input[i], &error);
-			if (error != 0)
-				return (0);
-			new = lst_new(data, 0);
-			lst_add_back(lst, new);
-			i++;
-		}
-		add_index(size - nb_args, lst);
-		print_lst(lst);
+		data = ft_atoi(input[i]);
+		new = lst_new(data, 0);
+		if (i == 0)
+			lst = new;
+		else
+			lst_add_back(&lst, new);
+		i++;
 	}
-	return (1);
+	add_index(size, &lst);
+	return (lst);
 }
 
 t_clist	*lst_new(int data, int index)
 {
 	t_clist	*new;
 
+	new = NULL;
 	new = malloc(sizeof(t_clist));
 	if (!new)
 		return (NULL);
@@ -67,14 +62,9 @@ void	lst_add_back(t_clist **lst, t_clist *new)
 {
 	t_clist	*tmp;
 
-	// tmp = (*lst);
+	tmp = NULL;
 	if (!new)
 		return ;
-	if (!lst || !*lst)
-	{
-		*lst = new;
-		return ;
-	}
 	tmp = lst_last(*lst);
 	if (tmp)
 		tmp->next = new;
@@ -83,13 +73,13 @@ void	lst_add_back(t_clist **lst, t_clist *new)
 void	add_index(int size, t_clist **lst)
 {
 	int		i;
-    t_clist	*head;
+	t_clist	*head;
 	t_clist	*current;
 
 	current = *lst;
 	while (current)
 	{
-		i = size;
+		i = size - 1;
 		head = *lst;
 		while (head)
 		{
