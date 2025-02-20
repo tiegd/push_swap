@@ -6,7 +6,7 @@
 #    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:59:43 by gaducurt          #+#    #+#              #
-#    Updated: 2025/02/20 13:30:32 by gaducurt         ###   ########.fr        #
+#    Updated: 2025/02/20 14:38:01 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,6 @@ SRC = 	main.c				\
 		push_swap_utils.c	\
 		push_swap.c			\
 		init_list.c			\
-		print_lst.c			\
 		swap.c				\
 		push.c				\
 		rotate.c			\
