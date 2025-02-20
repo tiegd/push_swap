@@ -6,7 +6,7 @@
 #    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/31 15:59:43 by gaducurt          #+#    #+#              #
-#    Updated: 2025/02/13 17:45:56 by gaducurt         ###   ########.fr        #
+#    Updated: 2025/02/20 13:30:32 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAGS = -Wall -Wextra -Werror -g3
 
 HEADER = 	Libft/libft.h	\
 			push_swap.h
+			
+OBJDIR = .obj_push_swap
 
 SRC = 	main.c				\
 		parsing.c			\
@@ -33,7 +35,7 @@ SRC = 	main.c				\
 
 LIBS = Libft/libft.a
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 
 all: libft $(NAME)
 
@@ -43,14 +45,20 @@ libft:
 $(NAME): $(OBJ) $(HEADER) $(LIBS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
 %.o : %.c Makefile $(LIBS)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	$(MAKE) clean -C Libft
-	rm -f $(OBJ)
+	rm -rf $(OBJ) Libft/fclean
 fclean: clean
-	rm -f $(NAME) Libft/libft.a
+	rm -rf $(NAME) Libft/libft.a $(OBJDIR)
 re: fclean all
 
 .PHONY: all clean fclean re libft

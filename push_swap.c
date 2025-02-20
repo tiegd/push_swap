@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:24:14 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/19 16:45:23 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/20 13:49:29 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	radix(t_clist **lst_a, t_clist **lst_b, int size_a)
 	bit_max = count_bit(size_a);
 	if (size_a <= 5)
 		lil_sort(lst_a, lst_b);
-	else
+	else if (!is_sorted(lst_a))
 	{
 		while (bit < bit_max)
 		{

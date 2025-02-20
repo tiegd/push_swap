@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 16:07:35 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/19 18:04:24 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:00:41 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ int	check_args(char **tab, int size)
 	int		i;
 	int		error;
 
-	i = 0;
 	error = 0;
 	if (!ft_parser(size, tab))
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	i = 0;
 	while (tab[i])
 	{
 		atoi_ps(tab[i], &error);

@@ -3,17 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tieg <tieg@student.42.fr>                  +#+  +:+       +#+         #
+#    By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 13:26:52 by gaducurt          #+#    #+#              #
-#    Updated: 2024/11/21 17:53:50 by tieg             ###   ########.fr        #
+#    Updated: 2025/02/20 13:48:14 by gaducurt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
+
 HEADER = libft.h
+
+OBJDIR = .obj_libft
+
 SRC = 	ft_isalpha.c	\
 		ft_isdigit.c	\
 		ft_isalnum.c	\
@@ -61,12 +67,18 @@ BONUS = ft_lstnew_bonus.c		\
 
 OBJBONUS = $(BONUS:.c=.o)
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(patsubst %.c, $(OBJDIR)/%.o, $(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
+
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
+	$(CC) $(FLAGS) -c $< -o $@
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
 %.o : %.c Makefile
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -77,9 +89,9 @@ bonus : .bonus
 	ar rcs $(NAME) $?
 	@touch .bonus
 clean:
-	rm -f $(OBJ) $(OBJBONUS) .bonus
+	rm -rf $(OBJ) $(OBJBONUS) .bonus $(OBJDIR)
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 re: fclean all bonus
 
 .PHONY: all fclean re bonus

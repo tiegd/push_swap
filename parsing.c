@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:48:02 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/19 18:05:13 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:14:20 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_number(int size, char **input)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i < size)
 	{
 		j = 0;
@@ -58,7 +58,7 @@ int	is_to_long(int size, char **input)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	while (i < size)
 	{
 		if (ft_strlen(input[i]) > 11)

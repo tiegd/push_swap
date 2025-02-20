@@ -6,7 +6,7 @@
 /*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:45:32 by gaducurt          #+#    #+#             */
-/*   Updated: 2025/02/19 18:31:58 by gaducurt         ###   ########.fr       */
+/*   Updated: 2025/02/20 13:46:31 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	main(int ac, char **av)
 	if (check_args(av, i))
 	{
 		lst_a = fill_lst(av, i);
-		if (ac == 2)
-			free_all(av);
 		radix(&lst_a, &lst_b, i);
 		free_lst(&lst_a);
 	}
+	if (ac == 2)
+		free_all(av);
 	return (0);
 }
