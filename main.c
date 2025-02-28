@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gaducurt <gaducurt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/31 15:45:32 by gaducurt          #+#    #+#             */
+/*   Updated: 2025/02/21 11:42:20 by gaducurt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+int	main(int ac, char **av)
+{
+	t_clist	*lst_a;
+	t_clist	*lst_b;
+	int		i;
+
+	i = ac - 1;
+	lst_b = NULL;
+	if (ac > 2)
+		av = fill_new_tab(av);
+	else if (ac <= 2)
+	{
+		if (ac == 1)
+			return (0);
+		av = ft_split(av[1], ' ');
+		if (av)
+			i = tab_len(av);
+	}
+	if (av && check_args(av, i))
+	{
+		lst_a = fill_lst(av, i);
+		radix(&lst_a, &lst_b, i);
+		free_lst(&lst_a);
+	}
+	if (av && ac == 2)
+		free_all(av);
+	return (0);
+}
